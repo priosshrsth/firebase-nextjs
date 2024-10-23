@@ -21,7 +21,12 @@ export function getUserCS() {
   return useContext(FirebaseNextJSContext);
 }
 
-export function FirebaseNextJSProvider({ children }: { children: React.ReactNode }) {
+interface Props {
+  children: React.ReactNode;
+  renderEmptyBodyWhileLoading?: boolean;
+}
+
+export function FirebaseNextJSProvider({ children, renderEmptyBodyWhileLoading }: Props) {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [userLoggedIn, setUserLoggedIn] = useState(false);
   const [isEmailUser, setIsEmailUser] = useState(false);
@@ -47,9 +52,7 @@ export function FirebaseNextJSProvider({ children }: { children: React.ReactNode
       }).catch(async function (error) {
         console.error(error)
         console.error("FAILED TO GET ID TOKEN")
-        // document.cookie = "firebase_nextjs_token=";
-        // await auth.signOut();
-        // window.location.reload();
+
       });
 
       setCurrentUser({ ...user });
@@ -71,7 +74,7 @@ export function FirebaseNextJSProvider({ children }: { children: React.ReactNode
 
   return (
     <FirebaseNextJSContext.Provider value={value}>
-      {loading ? <body /> : children}
+      {(renderEmptyBodyWhileLoading && loading) ? <body /> : children}
     </FirebaseNextJSContext.Provider>
   );
 }

@@ -21,27 +21,18 @@ async function getServiceAccountCreds() {
 }
 
 export async function getAppSS() {
-    var app;
     if (admin.apps.length === 0) {
-        app = admin.initializeApp({
+        return admin.initializeApp({
             credential: admin.credential.cert(await getServiceAccountCreds())
         });
-    } else {
-        app = admin.app()
     }
-    return app
+
+    return admin.app()
 }
 
 export async function getUserSS() {
-    var app;
-    if (admin.apps.length === 0) {
-        app = admin.initializeApp({
-            credential: admin.credential.cert(await getServiceAccountCreds())
-        });
-    } else {
-        app = admin.app()
-    }
-    const cookieStore = cookies()
+    const app = await getAppSS()
+    const cookieStore = await cookies()
     const token = cookieStore.get('firebase_nextjs_token')
     if (token === undefined) {
         return null

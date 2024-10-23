@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import { jwtDecode } from "jwt-decode";
+// @ts-ignore
 import { firebaseConfig } from "/firebase-app-config";
 
 const google_cert_urls = [
