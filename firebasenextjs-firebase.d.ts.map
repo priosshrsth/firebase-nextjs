@@ -1,1 +1,1 @@
-{"version":3,"file":"firebasenextjs-firebase.d.ts","sourceRoot":"","sources":["firebasenextjs-firebase.ts"],"names":[],"mappings":"AAMA,QAAA,MAAM,GAAG,qCAAgC,CAAC;AAC1C,QAAA,MAAM,IAAI,+BAAe,CAAA;AAEzB,wBAAgB,MAAM,wCAOrB;AAED,OAAO,EAAE,GAAG,EAAE,IAAI,EAAE,CAAC"}
+{"version":3,"file":"firebasenextjs-firebase.d.ts","sourceRoot":"","sources":["firebasenextjs-firebase.ts"],"names":[],"mappings":"AAMA,wBAAgB,MAAM,wCAOrB;AAED,QAAA,MAAM,GAAG,qCAAW,CAAA;AAEpB,QAAA,MAAM,IAAI,+BAAe,CAAA;AAIzB,OAAO,EAAE,GAAG,EAAE,IAAI,EAAE,CAAC"}

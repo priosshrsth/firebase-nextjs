@@ -4,9 +4,6 @@ import { getAuth } from "firebase/auth";
 //@ts-ignore
 import { firebaseConfig } from "/firebase-app-config";
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app)
-
 export function getApp() {
     if (getApps().length === 0) {
         return initializeApp(firebaseConfig);
@@ -15,5 +12,11 @@ export function getApp() {
         return getApps()[0];
     }
 }
+
+const app = getApp()
+
+const auth = getAuth(app)
+
+
 
 export { app, auth };
