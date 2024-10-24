@@ -1,6 +1,7 @@
 import "./ProfileButtonStyle.css";
 import React from "react";
 import { PopoverPosition } from "react-tiny-popover";
+export declare const doSignInWithGoogle: (callback: CallableFunction) => Promise<void>;
 /**
  *
  * @param children - The component that should trigger the sign out.

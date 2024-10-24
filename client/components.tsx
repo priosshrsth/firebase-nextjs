@@ -8,6 +8,14 @@ import { decodeFirebaseError } from "./getFirebaseErrors";
 import React, { useState } from "react";
 import { Popover, PopoverPosition } from "react-tiny-popover";
 
+
+export const doSignInWithGoogle = async (callback: CallableFunction) => {
+    const provider = new GoogleAuthProvider();
+    const resp = await signInWithPopup(auth, provider);
+    if (resp) {
+        callback()
+    }
+};
 /**
  * 
  * @param children - The component that should trigger the sign out.

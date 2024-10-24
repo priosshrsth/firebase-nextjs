@@ -44,6 +44,7 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.doSignInWithGoogle = void 0;
 exports.LogoutButton = LogoutButton;
 exports.LoggedInContent = LoggedInContent;
 exports.LoggedOutContent = LoggedOutContent;
@@ -60,6 +61,14 @@ const auth_2 = require("./auth");
 const getFirebaseErrors_1 = require("./getFirebaseErrors");
 const react_1 = __importStar(require("react"));
 const react_tiny_popover_1 = require("react-tiny-popover");
+const doSignInWithGoogle = (callback) => __awaiter(void 0, void 0, void 0, function* () {
+    const provider = new auth_1.GoogleAuthProvider();
+    const resp = yield (0, auth_1.signInWithPopup)(firebasenextjs_firebase_1.auth, provider);
+    if (resp) {
+        callback();
+    }
+});
+exports.doSignInWithGoogle = doSignInWithGoogle;
 /**
  *
  * @param children - The component that should trigger the sign out.
